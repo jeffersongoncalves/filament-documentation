@@ -52,7 +52,6 @@ class FilamentDocumentationPlugin implements Plugin
         //
     }
 
-
     public function slug(string $slug): static
     {
         $this->slug = $slug;
