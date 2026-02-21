@@ -1,11 +1,10 @@
 <x-filament-panels::page>
     <div
-        class="docs-wrapper flex gap-6 min-h-screen"
+        class="docs-wrapper"
         x-data="{ sidebarOpen: true }"
         x-load-css="[
             @js(\Filament\Support\Facades\FilamentAsset::getStyleHref('filament-documentation-styles', package: 'jeffersongoncalves/filament-documentation')),
-            'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css',
-            'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css'
+            'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css'
         ]"
         data-dispatch="docs-assets"
         x-load-js="[
@@ -16,11 +15,11 @@
     >
 
         {{-- Sidebar --}}
-        <aside class="docs-sidebar w-64 flex-shrink-0"
-               :class="sidebarOpen ? 'block' : 'hidden lg:block'">
+        <aside class="docs-sidebar"
+               :class="sidebarOpen ? '' : 'docs-sidebar--hidden'">
 
             {{-- Search --}}
-            <div class="mb-4">
+            <div class="docs-search">
                 <x-filament::input.wrapper>
                     <x-filament::input
                         type="search"
@@ -38,7 +37,7 @@
         </aside>
 
         {{-- Main Content --}}
-        <main class="docs-content flex-1 min-w-0">
+        <main class="docs-content">
             @include('filament-documentation::components.content', [
                 'document' => $document,
             ])
