@@ -52,7 +52,6 @@ class FilamentDocumentationPlugin implements Plugin
         //
     }
 
-    // ── Fluent configurators ──────────────────────────────────────────────
 
     public function slug(string $slug): static
     {
