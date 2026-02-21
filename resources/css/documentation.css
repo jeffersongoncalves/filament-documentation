@@ -1,0 +1,169 @@
+/* ── Layout ── */
+.docs-wrapper {
+    padding: 1rem;
+}
+
+/* ── Sidebar ── */
+.docs-sidebar {
+    position: sticky;
+    top: 1rem;
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+    padding: 1rem;
+    background: var(--fi-bg);
+    border-radius: 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+@media (prefers-color-scheme: dark) {
+    .docs-sidebar {
+        border-color: rgba(255, 255, 255, 0.07);
+    }
+}
+
+/* ── Prose / Markdown Body ── */
+.docs-body {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+}
+
+.docs-body h1,
+.docs-body h2,
+.docs-body h3 {
+    scroll-margin-top: 5rem;
+}
+
+.docs-body h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.docs-body h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.docs-body h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ── Code Blocks ── */
+.docs-body pre {
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    overflow-x: auto;
+    font-size: 0.875rem;
+    margin: 1.25rem 0;
+    background: #f6f8fa;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.docs-body pre[data-lang]::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.5;
+    font-family: ui-monospace, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+    .docs-body pre {
+        background: #161b22;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.docs-body code:not(pre code) {
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+    padding: 0.15em 0.45em;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+}
+
+/* ── Tables ── */
+.docs-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+.docs-body th {
+    background: rgba(99, 102, 241, 0.07);
+    font-weight: 600;
+    text-align: left;
+    padding: 0.6rem 1rem;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.2);
+}
+
+.docs-body td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+    .docs-body td {
+        border-bottom-color: rgba(255, 255, 255, 0.06);
+    }
+}
+
+/* ── Callouts / Blockquotes ── */
+.docs-body blockquote {
+    border-left: 4px solid #6366f1;
+    margin: 1.25rem 0;
+    padding: 0.75rem 1.25rem;
+    background: rgba(99, 102, 241, 0.05);
+    border-radius: 0 0.5rem 0.5rem 0;
+    color: inherit;
+}
+
+/* ── Links ── */
+.docs-body a {
+    color: #6366f1;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.docs-body a:hover {
+    opacity: 0.75;
+}
+
+/* ── Heading Permalink ── */
+.heading-permalink {
+    margin-left: 0.4rem;
+    opacity: 0;
+    font-size: 0.85em;
+    text-decoration: none !important;
+}
+
+h1:hover .heading-permalink,
+h2:hover .heading-permalink,
+h3:hover .heading-permalink {
+    opacity: 0.4;
+}
+
+/* ── Copy Button ── */
+.copy-btn {
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+    border: none;
+    cursor: pointer;
+    font-family: ui-monospace, monospace;
+}
+
+.copy-btn:hover {
+    background: rgba(99, 102, 241, 0.2);
+}
