@@ -20,14 +20,12 @@ class DocumentationPage extends Page
 
     public string $searchQuery = '';
 
-    // ── Filament Navigation ───────────────────────────────────────────────
-
     public static function getNavigationLabel(): string
     {
         return FilamentDocumentationPlugin::get()->getNavigationLabel();
     }
 
-    public static function getNavigationIcon(): string|\BackedEnum|Htmlable|null
+    public static function getNavigationIcon(): string|Htmlable|null
     {
         return FilamentDocumentationPlugin::get()->getNavigationIcon();
     }
@@ -47,8 +45,6 @@ class DocumentationPage extends Page
         return FilamentDocumentationPlugin::get()->getSlug().'/{pageSlug?}';
     }
 
-    // ── Authorization ─────────────────────────────────────────────────────
-
     public static function canAccess(): bool
     {
         $plugin = FilamentDocumentationPlugin::get();
@@ -60,12 +56,8 @@ class DocumentationPage extends Page
         return true;
     }
 
-    // ── Lifecycle ─────────────────────────────────────────────────────────
-
     public function mount(string $pageSlug = ''): void
     {
-        static::authorizeAccess();
-
         $this->pageSlug = $pageSlug ?: $this->resolveDefaultSlug();
         $this->loadDocument();
         $this->loadNavigation();
@@ -76,8 +68,6 @@ class DocumentationPage extends Page
         $this->loadDocument();
         $this->loadNavigation();
     }
-
-    // ── Helpers ───────────────────────────────────────────────────────────
 
     protected function resolveDefaultSlug(): string
     {
