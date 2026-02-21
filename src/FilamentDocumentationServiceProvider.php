@@ -25,12 +25,10 @@ class FilamentDocumentationServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        FilamentAsset::register([
-            Css::make('filament-documentation-styles', __DIR__.'/../resources/css/documentation.css')
-                ->loadedOnRequest(),
-            Js::make('filament-documentation-scripts', __DIR__.'/../resources/js/documentation.js')
-                ->loadedOnRequest(),
-        ], package: 'jeffersongoncalves/filament-documentation');
+        FilamentAsset::register(
+            $this->getAssets(),
+            $this->getAssetPackageName()
+        );
 
         $this->publishes([
             __DIR__.'/../config/filament-documentation.php' => config_path('filament-documentation.php'),
@@ -50,5 +48,20 @@ class FilamentDocumentationServiceProvider extends ServiceProvider
                 InstallCommand::class,
             ]);
         }
+    }
+
+    protected function getAssetPackageName(): ?string
+    {
+        return 'jeffersongoncalves/filament-documentation';
+    }
+
+    protected function getAssets(): array
+    {
+        return [
+            Css::make('filament-documentation-styles', __DIR__.'/../resources/dist/filament-documentation.css')
+                ->loadedOnRequest(),
+            Js::make('filament-documentation-scripts', __DIR__.'/../resources/dist/filament-documentation.js')
+                ->loadedOnRequest(),
+        ];
     }
 }
