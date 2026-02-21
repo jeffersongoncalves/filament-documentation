@@ -8,7 +8,7 @@
                     class="docs-nav-group flex items-center justify-between w-full px-3 py-2 text-sm font-semibold rounded-lg
                            text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 transition">
                     <span>{{ $item['title'] }}</span>
-                    <x-heroicon-m-chevron-right class="w-4 h-4 transition-transform" x-bind:class="open ? 'rotate-90' : ''" />
+                    <x-filament::icon icon="heroicon-m-chevron-right" class="w-4 h-4 transition-transform" x-bind:class="open ? 'rotate-90' : ''" />
                 </button>
 
                 <div x-show="open" x-collapse class="ml-3 mt-1 space-y-1">
