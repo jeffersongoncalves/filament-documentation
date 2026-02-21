@@ -3,6 +3,7 @@
 namespace JeffersonGoncalves\FilamentDocumentation\Pages;
 
 use Filament\Pages\Page;
+use Filament\Panel;
 use Illuminate\Contracts\Support\Htmlable;
 use JeffersonGoncalves\FilamentDocumentation\FilamentDocumentationPlugin;
 use JeffersonGoncalves\FilamentDocumentation\Services\DocumentationParser;
@@ -19,8 +20,6 @@ class DocumentationPage extends Page
     public array $navigation = [];
 
     public string $searchQuery = '';
-
-    // ── Filament Navigation ───────────────────────────────────────────────
 
     public static function getNavigationLabel(): string
     {
@@ -42,12 +41,10 @@ class DocumentationPage extends Page
         return FilamentDocumentationPlugin::get()->getNavigationSort();
     }
 
-    public static function getSlug(): string
+    public static function getSlug(?Panel $panel = null): string
     {
         return FilamentDocumentationPlugin::get()->getSlug().'/{pageSlug?}';
     }
-
-    // ── Authorization ─────────────────────────────────────────────────────
 
     public static function canAccess(): bool
     {
@@ -60,12 +57,8 @@ class DocumentationPage extends Page
         return true;
     }
 
-    // ── Lifecycle ─────────────────────────────────────────────────────────
-
     public function mount(string $pageSlug = ''): void
     {
-        static::authorizeAccess();
-
         $this->pageSlug = $pageSlug ?: $this->resolveDefaultSlug();
         $this->loadDocument();
         $this->loadNavigation();
@@ -76,8 +69,6 @@ class DocumentationPage extends Page
         $this->loadDocument();
         $this->loadNavigation();
     }
-
-    // ── Helpers ───────────────────────────────────────────────────────────
 
     protected function resolveDefaultSlug(): string
     {

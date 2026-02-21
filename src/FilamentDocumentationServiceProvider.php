@@ -5,25 +5,30 @@ namespace JeffersonGoncalves\FilamentDocumentation;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
-use Illuminate\Support\ServiceProvider;
 use JeffersonGoncalves\FilamentDocumentation\Commands\InstallCommand;
 use JeffersonGoncalves\FilamentDocumentation\Services\DocumentationParser;
 use JeffersonGoncalves\FilamentDocumentation\Services\NavigationBuilder;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class FilamentDocumentationServiceProvider extends ServiceProvider
+class FilamentDocumentationServiceProvider extends PackageServiceProvider
 {
-    public function register(): void
+    public function configurePackage(Package $package): void
     {
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/filament-documentation.php',
-            'filament-documentation'
-        );
+        $package
+            ->name('filament-documentation')
+            ->hasConfigFile()
+            ->hasViews()
+            ->hasCommand(InstallCommand::class);
+    }
 
+    public function packageRegistered(): void
+    {
         $this->app->singleton(DocumentationParser::class);
         $this->app->singleton(NavigationBuilder::class);
     }
 
-    public function boot(): void
+    public function packageBooted(): void
     {
         FilamentAsset::register(
             $this->getAssets(),
@@ -31,23 +36,8 @@ class FilamentDocumentationServiceProvider extends ServiceProvider
         );
 
         $this->publishes([
-            __DIR__.'/../config/filament-documentation.php' => config_path('filament-documentation.php'),
-        ], 'filament-documentation-config');
-
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'filament-documentation');
-        $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/filament-documentation'),
-        ], 'filament-documentation-views');
-
-        $this->publishes([
             __DIR__.'/../resources/docs' => resource_path('docs'),
         ], 'filament-documentation-docs');
-
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                InstallCommand::class,
-            ]);
-        }
     }
 
     protected function getAssetPackageName(): ?string
