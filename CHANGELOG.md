@@ -2,6 +2,14 @@
 
 All notable changes to `filament-documentation` will be documented in this file.
 
+## v3.0.1 - 2026-02-21
+
+### Fixed
+
+- Use `<x-filament::icon>` component instead of direct `<x-heroicon-*>` in sidebar navigation, fixing `InvalidArgumentException: Unable to locate a class or view for component [heroicon-m-chevron-right]` caused by Filament's `DisableBladeIconComponents` middleware
+
+**Full Changelog**: https://github.com/jeffersongoncalves/filament-documentation/compare/v3.0.0...v3.0.1
+
 ## v3.0.0 - 2026-02-21
 
 ### Initial Release (Filament v5)
