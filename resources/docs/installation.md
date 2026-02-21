@@ -9,8 +9,9 @@ order: 2
 ## Requirements
 
 - PHP 8.2+
-- Laravel 11+
-- Filament 4.x
+- Laravel 11.28+
+- Filament 5.x
+- Livewire 4.x
 
 ## Steps
 
