@@ -139,8 +139,13 @@ class DocumentationParser
                     $relative = ltrim(str_replace(realpath($docsRoot), '', $absPath), '/\\');
                     $slug = str_replace(['/', '\\', '.md'], ['/', '/', ''], $relative);
 
-                    $baseSlug = FilamentDocumentationPlugin::get()->getSlug();
-                    $panelPath = filament()->getCurrentPanel()?->getPath() ?? 'admin';
+                    try {
+                        $baseSlug = FilamentDocumentationPlugin::get()->getSlug();
+                        $panelPath = filament()->getCurrentPanel()?->getPath() ?? 'admin';
+                    } catch (\Exception) {
+                        $baseSlug = 'docs';
+                        $panelPath = 'admin';
+                    }
 
                     $url = "/{$panelPath}/{$baseSlug}/{$slug}";
 
