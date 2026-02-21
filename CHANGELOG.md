@@ -2,6 +2,14 @@
 
 All notable changes to `filament-documentation` will be documented in this file.
 
+## v1.0.2 - 2026-02-21
+
+### Fixed
+
+- Replace Tailwind utility classes with custom CSS for Filament v4/v5 compatibility
+- Fix dark code blocks appearing in light mode (highlight.js theme conflict)
+- Switch dark mode to `.dark` class selector (Filament standard)
+
 ## v1.0.1 - 2026-02-21
 
 ### Fixed
