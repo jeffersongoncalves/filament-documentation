@@ -5,6 +5,7 @@ namespace JeffersonGoncalves\FilamentDocumentation\Pages;
 use Filament\Pages\Page;
 use Filament\Panel;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Support\Facades\Route;
 use JeffersonGoncalves\FilamentDocumentation\FilamentDocumentationPlugin;
 use JeffersonGoncalves\FilamentDocumentation\Services\DocumentationParser;
 use JeffersonGoncalves\FilamentDocumentation\Services\NavigationBuilder;
@@ -18,8 +19,6 @@ class DocumentationPage extends Page
     public array $document = [];
 
     public array $navigation = [];
-
-    public string $searchQuery = '';
 
     public static function getNavigationLabel(): string
     {
@@ -44,6 +43,15 @@ class DocumentationPage extends Page
     public static function getSlug(?Panel $panel = null): string
     {
         return FilamentDocumentationPlugin::get()->getSlug().'/{pageSlug?}';
+    }
+
+    public static function routes(Panel $panel): void
+    {
+        Route::get(static::getRoutePath($panel), static::class)
+            ->middleware(static::getRouteMiddleware($panel))
+            ->withoutMiddleware(static::getWithoutRouteMiddleware($panel))
+            ->name(static::getRelativeRouteName($panel))
+            ->where('pageSlug', '.*');
     }
 
     public static function canAccess(): bool
@@ -114,6 +122,13 @@ class DocumentationPage extends Page
         $this->pageSlug = $slug;
         $this->loadDocument();
         $this->loadNavigation();
+
+        $this->js("window.history.pushState({}, '', '".$this->getPageUrl($slug)."')");
+    }
+
+    public function getPageUrl(string $slug): string
+    {
+        return static::getUrl(['pageSlug' => $slug]);
     }
 
     public function getTitle(): string|Htmlable

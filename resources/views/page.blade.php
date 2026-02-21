@@ -18,17 +18,6 @@
         <aside class="docs-sidebar"
                :class="sidebarOpen ? '' : 'docs-sidebar--hidden'">
 
-            {{-- Search --}}
-            <div class="docs-search">
-                <x-filament::input.wrapper>
-                    <x-filament::input
-                        type="search"
-                        placeholder="Search docs..."
-                        wire:model.live.debounce.300ms="searchQuery"
-                    />
-                </x-filament::input.wrapper>
-            </div>
-
             {{-- Navigation --}}
             @include('filament-documentation::components.sidebar', [
                 'items'       => $navigation,
