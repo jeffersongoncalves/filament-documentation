@@ -2,6 +2,14 @@
 
 All notable changes to `filament-documentation` will be documented in this file.
 
+## v3.0.3 - 2026-02-21
+
+### Changed
+
+- Removed non-functional search component
+- Added URL-based navigation with history.pushState for page sharing
+- Override routes() to allow encoded forward slashes in pageSlug parameter
+
 ## v3.0.2 - 2026-02-21
 
 ### Fixed
