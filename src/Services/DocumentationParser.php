@@ -108,7 +108,7 @@ class DocumentationParser
     {
         preg_match('/^#\s+(.+)$/m', $markdown, $matches);
 
-        return $matches[1] ?? '';
+        return trim($matches[1] ?? '');
     }
 
     protected function processCodeBlocks(string $html): string
@@ -142,7 +142,7 @@ class DocumentationParser
                     try {
                         $baseSlug = FilamentDocumentationPlugin::get()->getSlug();
                         $panelPath = filament()->getCurrentPanel()?->getPath() ?? 'admin';
-                    } catch (\Exception) {
+                    } catch (\Throwable) {
                         $baseSlug = 'docs';
                         $panelPath = 'admin';
                     }
