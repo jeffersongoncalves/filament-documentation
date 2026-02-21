@@ -8,9 +8,9 @@ order: 2
 
 ## Requirements
 
-- PHP 8.1+
-- Laravel 10+
-- Filament 3.x
+- PHP 8.2+
+- Laravel 11+
+- Filament 4.x
 
 ## Steps
 
