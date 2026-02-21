@@ -2,8 +2,10 @@
 
 namespace JeffersonGoncalves\FilamentDocumentation;
 
+use BackedEnum;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Filament\Support\Icons\Heroicon;
 use JeffersonGoncalves\FilamentDocumentation\Pages\DocumentationPage;
 
 class FilamentDocumentationPlugin implements Plugin
@@ -12,7 +14,7 @@ class FilamentDocumentationPlugin implements Plugin
 
     protected string $navigationLabel = 'Documentation';
 
-    protected string $navigationIcon = 'heroicon-o-book-open';
+    protected string|BackedEnum $navigationIcon = Heroicon::OutlinedBookOpen;
 
     protected ?string $navigationGroup = null;
 
@@ -76,14 +78,14 @@ class FilamentDocumentationPlugin implements Plugin
         return $this->navigationLabel;
     }
 
-    public function navigationIcon(string $icon): static
+    public function navigationIcon(string|BackedEnum $icon): static
     {
         $this->navigationIcon = $icon;
 
         return $this;
     }
 
-    public function getNavigationIcon(): string
+    public function getNavigationIcon(): string|BackedEnum
     {
         return $this->navigationIcon;
     }
