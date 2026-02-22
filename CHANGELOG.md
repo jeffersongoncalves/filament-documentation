@@ -2,6 +2,12 @@
 
 All notable changes to `filament-documentation` will be documented in this file.
 
+## v3.0.4 - 2026-02-22
+
+### Fixed
+
+- Use `DocumentationPage::getUrl()` for markdown link generation instead of manual URL concatenation, fixing malformed URLs when panel path is empty
+
 ## v3.0.3 - 2026-02-21
 
 ### Changed
