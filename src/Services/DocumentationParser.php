@@ -3,7 +3,7 @@
 namespace JeffersonGoncalves\FilamentDocumentation\Services;
 
 use Illuminate\Support\Facades\Cache;
-use JeffersonGoncalves\FilamentDocumentation\FilamentDocumentationPlugin;
+use JeffersonGoncalves\FilamentDocumentation\Pages\DocumentationPage;
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\Extension\FrontMatter\FrontMatterExtension;
@@ -140,14 +140,10 @@ class DocumentationParser
                     $slug = str_replace(['/', '\\', '.md'], ['/', '/', ''], $relative);
 
                     try {
-                        $baseSlug = FilamentDocumentationPlugin::get()->getSlug();
-                        $panelPath = filament()->getCurrentPanel()?->getPath() ?? 'admin';
+                        $url = DocumentationPage::getUrl(['pageSlug' => $slug]);
                     } catch (\Throwable) {
-                        $baseSlug = 'docs';
-                        $panelPath = 'admin';
+                        $url = '/docs/'.$slug;
                     }
-
-                    $url = "/{$panelPath}/{$baseSlug}/{$slug}";
 
                     return "<a href=\"{$url}\"";
                 }
