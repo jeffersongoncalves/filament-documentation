@@ -1,3 +1,9 @@
+<div class="filament-hidden">
+
+![Filament Documentation](https://raw.githubusercontent.com/jeffersongoncalves/filament-documentation/1.x/art/jeffersongoncalves-filament-documentation.png)
+
+</div>
+
 # Filament Documentation Plugin
 
 [![Tests](https://github.com/jeffersongoncalves/filament-documentation/actions/workflows/tests.yml/badge.svg)](https://github.com/jeffersongoncalves/filament-documentation/actions/workflows/tests.yml)
