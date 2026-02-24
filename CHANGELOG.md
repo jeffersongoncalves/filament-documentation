@@ -2,6 +2,12 @@
 
 All notable changes to `filament-documentation` will be documented in this file.
 
+## 3.0.5 - 2026-02-24
+
+### What's Changed
+
+- Add Laravel 13.x support (CI test matrix updated for Laravel 13)
+
 ## v3.0.4 - 2026-02-22
 
 ### Fixed
