@@ -1,0 +1,86 @@
+{
+    "plugin": {
+        "name": "Filament Documentation",
+        "package": "jeffersongoncalves/filament-documentation"
+    },
+    "filakit": {
+        "kit": "filakitphp/basev4"
+    },
+    "install": {
+        "extra_packages": [],
+        "plugins": [
+            {
+                "class": "JeffersonGoncalves\\FilamentDocumentation\\FilamentDocumentationPlugin",
+                "panel": "admin"
+            }
+        ],
+        "publish": [
+            "filament-documentation-config",
+            "filament-documentation-docs"
+        ],
+        "post_install_commands": [
+            "docs:install"
+        ]
+    },
+    "seed": {
+        "auto_detect": false,
+        "user": {
+            "email": "admin@example.com",
+            "password": "password",
+            "name": "Admin User"
+        },
+        "models": []
+    },
+    "screenshots": [
+        {
+            "name": "docs-home",
+            "url": "admin/docs",
+            "selector": "body",
+            "before": [
+                {"action": "wait", "delay": 1000}
+            ],
+            "crop": null,
+            "viewport": {"width": 1920, "height": 1080, "deviceScaleFactor": 2}
+        },
+        {
+            "name": "docs-installation",
+            "url": "admin/docs/installation",
+            "selector": "body",
+            "before": [
+                {"action": "wait", "delay": 1000}
+            ],
+            "crop": null,
+            "viewport": {"width": 1920, "height": 1080, "deviceScaleFactor": 2}
+        },
+        {
+            "name": "docs-configuration",
+            "url": "admin/docs/configuration",
+            "selector": "body",
+            "before": [
+                {"action": "wait", "delay": 1000}
+            ],
+            "crop": null,
+            "viewport": {"width": 1920, "height": 1080, "deviceScaleFactor": 2}
+        },
+        {
+            "name": "docs-advanced",
+            "url": "admin/docs/advanced/overview",
+            "selector": "body",
+            "before": [
+                {"action": "wait", "delay": 1000}
+            ],
+            "crop": null,
+            "viewport": {"width": 1920, "height": 1080, "deviceScaleFactor": 2}
+        }
+    ],
+    "output": {
+        "directory": "screenshots",
+        "themes": ["light", "dark"],
+        "format": "png"
+    },
+    "readme": {
+        "update": true,
+        "section_marker": "<!-- SCREENSHOTS -->",
+        "template": "table"
+    }
+}
