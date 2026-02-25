@@ -35,6 +35,17 @@ A Filament plugin to add **markdown-based documentation** directly inside your a
 | 2.x | 4.x | 11+ | 8.2+ | 3.x |
 | 3.x | 5.x | 12+ | 8.2+ | 4.x |
 
+## Screenshots
+
+<!-- SCREENSHOTS -->
+| Screenshot | Light | Dark |
+|---|---|---|
+| Docs home | ![docs-home](screenshots/light/docs-home.png) | ![docs-home](screenshots/dark/docs-home.png) |
+| Docs installation | ![docs-installation](screenshots/light/docs-installation.png) | ![docs-installation](screenshots/dark/docs-installation.png) |
+| Docs configuration | ![docs-configuration](screenshots/light/docs-configuration.png) | ![docs-configuration](screenshots/dark/docs-configuration.png) |
+| Docs advanced | ![docs-advanced](screenshots/light/docs-advanced.png) | ![docs-advanced](screenshots/dark/docs-advanced.png) |
+<!-- SCREENSHOTS -->
+
 ## Installation
 
 ```bash
