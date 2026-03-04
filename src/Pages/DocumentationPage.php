@@ -45,7 +45,7 @@ class DocumentationPage extends Page
         return FilamentDocumentationPlugin::get()->getSlug().'/{pageSlug?}';
     }
 
-    public static function routes(Panel $panel): void
+    public static function routes(Panel $panel, ?\Filament\Pages\PageConfiguration $configuration = null): void
     {
         Route::get(static::getRoutePath($panel), static::class)
             ->middleware(static::getRouteMiddleware($panel))
