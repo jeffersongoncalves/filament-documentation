@@ -2,6 +2,12 @@
 
 All notable changes to `filament-documentation` will be documented in this file.
 
+## v2.0.5 - 2026-03-03
+
+### What's Changed
+
+- **Fix:** Make `DocumentationPage::routes()` method signature compatible with Filament's `PageConfiguration` parameter
+
 ## v2.0.4 - 2026-02-22
 
 ### Fixed
