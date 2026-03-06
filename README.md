@@ -6,10 +6,11 @@
 
 # Filament Documentation Plugin
 
-[![Tests](https://github.com/jeffersongoncalves/filament-documentation/actions/workflows/tests.yml/badge.svg)](https://github.com/jeffersongoncalves/filament-documentation/actions/workflows/tests.yml)
 [![PHPStan](https://github.com/jeffersongoncalves/filament-documentation/actions/workflows/phpstan.yml/badge.svg)](https://github.com/jeffersongoncalves/filament-documentation/actions/workflows/phpstan.yml)
 [![Fix PHP Code Style](https://github.com/jeffersongoncalves/filament-documentation/actions/workflows/fix-php-code-style-issues.yml/badge.svg)](https://github.com/jeffersongoncalves/filament-documentation/actions/workflows/fix-php-code-style-issues.yml)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jeffersongoncalves/filament-documentation.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/filament-documentation)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/filament-documentation/tests.yml?branch=3.x&label=tests&style=flat-square)](https://github.com/jeffersongoncalves/filament-documentation/actions?query=workflow%3Atests+branch%3A3.x)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/filament-documentation/fix-php-code-style-issues.yml?branch=3.x&label=code%20style&style=flat-square)](https://github.com/jeffersongoncalves/filament-documentation/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3A3.x)
 
 A Filament plugin to add **markdown-based documentation** directly inside your admin panel. Inspired by `nova-documentation`.
 
@@ -47,6 +48,8 @@ A Filament plugin to add **markdown-based documentation** directly inside your a
 <!-- SCREENSHOTS -->
 
 ## Installation
+
+You can install the package via composer:
 
 ```bash
 composer require jeffersongoncalves/filament-documentation
@@ -189,7 +192,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
-## Security
+## Security Vulnerabilities
 
 Please see [SECURITY](.github/SECURITY.md) for details.
 
