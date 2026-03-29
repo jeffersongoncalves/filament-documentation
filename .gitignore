@@ -5,3 +5,5 @@
 composer.lock
 .claude/
 .idea/
+
+.claude/settings.local.json
