@@ -11,7 +11,7 @@ description: "A Filament plugin to add markdown-based documentation to your admi
 
 # --- Images ---
 # Anexe os arquivos de imagem junto com este YAML no chat
-image: "jeffersongoncalves-filament-documentation.jpg"
+image: "jeffersongoncalves-filament-documentation.png"
 thumbnail: ""
 
 # --- Compatibility & Features ---
