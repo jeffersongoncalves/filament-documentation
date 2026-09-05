@@ -194,6 +194,10 @@ Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
 Please see [SECURITY](.github/SECURITY.md) for details.
 
+## Credits
+
+- [Jefferson Gonçalves](https://github.com/jeffersongoncalves)
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
