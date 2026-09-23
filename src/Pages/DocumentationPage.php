@@ -47,10 +47,10 @@ class DocumentationPage extends Page
 
     public static function routes(Panel $panel): void
     {
-        Route::get(static::getRoutePath($panel), static::class)
+        Route::get(static::getRoutePath(), static::class)
             ->middleware(static::getRouteMiddleware($panel))
             ->withoutMiddleware(static::getWithoutRouteMiddleware($panel))
-            ->name(static::getRelativeRouteName($panel))
+            ->name(static::getRelativeRouteName())
             ->where('pageSlug', '.*');
     }
 
