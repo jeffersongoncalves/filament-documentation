@@ -12,7 +12,7 @@ use JeffersonGoncalves\FilamentDocumentation\Services\NavigationBuilder;
 
 class DocumentationPage extends Page
 {
-    protected string $view = 'filament-documentation::page';
+    protected static string $view = 'filament-documentation::page';
 
     public string $pageSlug = '';
 
