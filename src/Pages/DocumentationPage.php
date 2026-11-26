@@ -3,6 +3,7 @@
 namespace JeffersonGoncalves\FilamentDocumentation\Pages;
 
 use Filament\Pages\Page;
+use Filament\Pages\PageConfiguration;
 use Filament\Panel;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Facades\Route;
@@ -45,7 +46,7 @@ class DocumentationPage extends Page
         return FilamentDocumentationPlugin::get()->getSlug().'/{pageSlug?}';
     }
 
-    public static function routes(Panel $panel, ?\Filament\Pages\PageConfiguration $configuration = null): void
+    public static function routes(Panel $panel, ?PageConfiguration $configuration = null): void
     {
         Route::get(static::getRoutePath($panel), static::class)
             ->middleware(static::getRouteMiddleware($panel))
