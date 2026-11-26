@@ -2,6 +2,12 @@
 
 All notable changes to `filament-documentation` will be documented in this file.
 
+## 3.1.0 - 2026-11-26
+
+### Security
+
+- Documentation page slugs are now confined to docs_path; ../ segments can no longer read Markdown files elsewhere on the server (path traversal, GHSA-7hm2-2crj-99j4). #86
+
 ## v3.0.6 - 2026-03-03
 
 ### What's Changed
