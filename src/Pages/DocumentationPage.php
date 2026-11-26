@@ -104,17 +104,23 @@ class DocumentationPage extends Page
 
     protected function resolveFilePath(string $slug, string $docsPath): string
     {
-        $direct = rtrim($docsPath, '/').'/'.$slug.'.md';
-        if (file_exists($direct)) {
-            return $direct;
+        $home = rtrim($docsPath, '/').'/'.config('filament-documentation.home', 'home.md');
+        $root = realpath($docsPath);
+
+        if ($root === false) {
+            return $home;
         }
 
-        $index = rtrim($docsPath, '/').'/'.$slug.'/index.md';
-        if (file_exists($index)) {
-            return $index;
+        foreach ([$slug.'.md', $slug.'/index.md'] as $candidate) {
+            $path = realpath($root.DIRECTORY_SEPARATOR.$candidate);
+
+            // The slug comes from the client: only serve files that stay inside docs_path.
+            if ($path !== false && str_starts_with($path, $root.DIRECTORY_SEPARATOR)) {
+                return $path;
+            }
         }
 
-        return rtrim($docsPath, '/').'/'.config('filament-documentation.home', 'home.md');
+        return $home;
     }
 
     public function navigateTo(string $slug): void
